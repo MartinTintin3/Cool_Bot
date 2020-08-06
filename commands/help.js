@@ -68,7 +68,7 @@ module.exports = {
 			category = args[0].toLowerCase();
 			const data = [];
 			commands.forEach((value, key, map) => {
-				if(value.category.toLowerCase() == category){
+				if(value.category.toLowerCase() == category && (!value.private || (value.private && message.channel.type == 'dm' && message.author.id == owner_info.id))){
 					data.push(`\`${value.name}\``);
 				}
 			});
