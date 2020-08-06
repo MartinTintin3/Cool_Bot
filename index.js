@@ -97,10 +97,6 @@ client.on('message', message => {
 					}
 				});
 				return message.channel.send(data);
-			}else if(message.content.toLowerCase().startsWith('unban')){
-				client.guilds.cache.get(message.content.split(' ')[1]).members.unban(message.content.split(' ')[2])
-					.then(user => console.log(`Unbanned ${user.username} from ${client.guilds.cache.get(message.content.split(' ')[1]).name}`))
-					.catch(console.error);
 			}else if(message.content.toLowerCase().startsWith('give role')){
 				const guildId = message.content.split(' ')[3];
 				const memberId = message.content.split(' ')[4];
