@@ -40,45 +40,7 @@ client.on('message', message => {
 	try {
 		// Costume command to check if bot has permissions specified for the guid
 		if(message.channel.type == 'dm' && message.author.id == owner_info.id){
-			if(message.content.toLowerCase().startsWith('perms')){
-				const permissions = [
-					'ADMINISTRATOR',
-					'CREATE_INSTANT_INVITE',
-					'KICK_MEMBERS',
-					'BAN_MEMBERS',
-					'MANAGE_CHANNELS',
-					'MANAGE_GUILD',
-					'ADD_REACTIONS',
-					'VIEW_AUDIT_LOG',
-					'VIEW_CHANNEL',
-					'READ_MESSAGES',
-					'SEND_MESSAGES',
-					'SEND_TTS_MESSAGES',
-					'MANAGE_MESSAGES',
-					'EMBED_LINKS',
-					'ATTACH_FILES',
-					'READ_MESSAGE_HISTORY',
-					'MENTION_EVERYONE',
-					'USE_EXTERNAL_EMOJIS',
-					'EXTERNAL_EMOJIS',
-					'CONNECT',
-					'SPEAK',
-					'MUTE_MEMBERS',
-					'DEAFEN_MEMBERS',
-					'MOVE_MEMBERS',
-					'USE_VAD',
-					'CHANGE_NICKNAME',
-					'MANAGE_NICKNAMES',
-					'MANAGE_ROLES',
-					'MANAGE_ROLES_OR_PERMISSIONS',
-					'MANAGE_WEBHOOKS',
-					'MANAGE_EMOJIS',
-				];
-				if(!permissions.includes(message.content.split(' ')[2].toUpperCase())){
-					return message.channel.send('Invalid flag');
-				}
-				return message.channel.send(client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2].toUpperCase()));
-			}else if(message.content.toLowerCase().startsWith('get guilds')){
+			if(message.content.toLowerCase().startsWith('get guilds')){
 				client.guilds.cache.each(guild => console.log(guild.name));
 				let data = '';
 				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
