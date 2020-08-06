@@ -1,0 +1,26 @@
+{
+  "name": "cool_bot",
+  "version": "1.1.2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Martin Maroyan",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "eslint": "^7.4.0",
+    "fs": "0.0.1-security",
+    "washyourmouthoutwithsoap": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinGITHUBER/Cool_Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/martinGITHUBER/Cool_Bot/issues"
+  },
+  "homepage": "https://github.com/martinGITHUBER/Cool_Bot#readme",
+  "description": ""
+}
