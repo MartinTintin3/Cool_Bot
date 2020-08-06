@@ -19,7 +19,7 @@ function checkMessage(message) {
 						console.log(new Date());
 						console.log(`${message.author.tag} tried to use profanity at "${message.guild.name}" in #${message.channel.name}: ${message.cleanContent}`);
 
-						return message.channel.send(`**BAD ${message.author.username}! Don't use bad words! Contact @${owner_info.name} for full message**`).then(function(){
+						return message.channel.send(`**BAD ${message.author.username}! Don't use bad words! Contact @${owner_info.tag} for full message**`).then(function(){
 							message.delete().catch(console.error);
 						});
 					}
