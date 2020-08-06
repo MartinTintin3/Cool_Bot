@@ -131,6 +131,9 @@ client.on('message', message => {
 		// If can't find command then return
 		if (!command) return;
 
+		// If the command is private, return
+		if(message.channel.type != 'dm' || (message.channel.type == 'dm' && message.author.id != owner_info.id)) return;
+
 		// If command is guildOnly then return message "I can't execute that command inside DMs!"
 		if (command.guildOnly && message.channel.type !== 'text') {
 			return message.reply('I can\'t execute that command inside DMs!');
@@ -187,9 +190,8 @@ client.on('message', message => {
 			}else if(args[0] == 'help') {
 				return client.commands.get('help').execute(message, [command.name]);
 			}
-			if(!command.private || (command.private && message.channel.type == 'dm' && message.author.id == owner_info.id)){
-				command.execute(message, args);
-			}
+
+			command.execute(message, args);
 		}catch (error) {
 			console.error(error);
 			message.reply('there was an error trying to execute that command!');
