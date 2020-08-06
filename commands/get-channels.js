@@ -3,6 +3,10 @@ module.exports = {
 	aliases: ['list-channels', 'channels'],
 	description: 'Get a list of channels and channel id\'s in the specified server/guild',
 	usage: '<server/guild id>',
+	category: 'Info',
+	args: true,
+	args_num: 1,
+	private: true,
 	execute(message, args){
 		let data = '';
 		message.client.guilds.cache.get(args[0]).channels.cache.each(channel => {
