@@ -7,10 +7,11 @@ module.exports = {
 	args: true,
 	args_num: 1,
 	execute(message, args){
+    console.log('hello');
 		let mention = args[0];
 		if (!mention){
 			try {
-        console.log(message.client.guilds.cache.get(args[0]).me.permissionsIn());
+				console.log(message.client.guilds.cache.get(args[0]).me.permissionsIn());
 				return message.send(message.client.guilds.cache.get(args[0]).me.permissionsIn());
 			}catch(err){
 				console.error(err);
