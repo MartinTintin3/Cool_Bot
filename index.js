@@ -51,14 +51,6 @@ client.on('message', message => {
 						return message.channel.send(`Created an invite with a code of ${invite.url}`);
 					})
 					.catch(console.error);
-			}else if(message.content.toLowerCase().startsWith('get channels')){
-				let data = '';
-				client.guilds.cache.get(message.content.split(' ')[2]).channels.cache.each(channel => {
-					if(data.split('').length < 1600){
-						data += `"${channel.name}": ${channel.id}\n`;
-					}
-				});
-				return message.channel.send(data);
 			}
 		}
 
