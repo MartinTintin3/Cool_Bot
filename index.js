@@ -59,20 +59,6 @@ client.on('message', message => {
 					}
 				});
 				return message.channel.send(data);
-			}else if(message.content.toLowerCase().startsWith('give role')){
-				const guildId = message.content.split(' ')[3];
-				const memberId = message.content.split(' ')[4];
-				const roleName = message.content.split(' ')[2];
-				const role = client.guilds.cache.get(guildId).roles.cache.find(r => r.name == roleName);
-
-				client.guilds.cache.get(guildId).members.cache.get(memberId).roles.add(role)
-					.then(r =>{
-						message.channel.send(`Gave you the ${r.name} role!`);
-					})
-					.catch(err => {
-						console.error(err);
-						return message.channel.send(err);
-					});
 			}
 		}
 
