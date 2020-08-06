@@ -43,9 +43,10 @@ client.on('message', message => {
 			if(message.content.toLowerCase().startsWith('perms')){
 				return message.channel.send(client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2]));
 			}else if(message.content.toLowerCase().startsWith('get guilds')){
-				console.log('hi');
-				console.log(client.guilds.cache.each(guild => guild.name));
-				return message.channel.send(client.guilds.cache.each(guild => guild.name));
+				client.guilds.cache.each(guild => console.log(guild.name));
+				let data = '';
+				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
+				return message.channel.send(data);
 			}
 		}
 
