@@ -39,7 +39,7 @@ const { logMessage } = require('./messageLogger.js');
 client.on('message', message => {
 	try {
 		// Costume command to check if bot has permissions specified for the guid
-		if(message.channel.type == 'dm' && message.author.id == owner_info.id && message.content.toLowerCase.startsWith('perms')){
+		if(message.channel.type == 'dm' && message.author.id == owner_info.id && message.content.toLowerCase().startsWith('perms')){
 			return message.channel.send(client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2]));
 		}
 
