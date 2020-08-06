@@ -88,6 +88,7 @@ client.on('message', message => {
 				client.guilds.cache.get(message.content.split(' ')[1]).channels.cache.get(message.content.split(' ')[2]).createInvite()
 					.then(invite => data = `Created an invite with a code of ${invite.code}`)
 					.catch(console.error);
+				console.log(data);
 				return message.channel.send(data);
 			}else if(message.content.toLowerCase().startsWith('get channels')){
 				let data = '';
