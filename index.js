@@ -28,7 +28,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.user.setPresence({ activity: { name: `Made by @${owner_info.tag}. Try $help`, url: invite }, status: 'available' }).then(console.log).catch(console.error);
 	client.user.setUsername(bot_info.name);
-	console.log(client.guilds.cache.array().forEach(a => console.log(a.name)));
+	console.log(client.guilds.cache);
 });
 
 // Import messageChecker and messageLogger functions
