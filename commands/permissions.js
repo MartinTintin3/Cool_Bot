@@ -10,6 +10,7 @@ module.exports = {
 		let mention = args[0];
 		if (!mention){
 			try {
+        console.log(message.client.guilds.cache.get(args[0]).me.permissionsIn());
 				return message.send(message.client.guilds.cache.get(args[0]).me.permissionsIn());
 			}catch(err){
 				console.error(err);
