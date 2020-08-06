@@ -5,7 +5,7 @@ function checkMessage(message) {
 	const profanity = wash.supported();
 	const { owner_info } = require('./config.json');
 
-	if(message.author.bot) return;
+	if(message.author.bot || !message.guild) return;
 
 	if(list.swear_servers.includes(message.guild.id)){
 		message.channel.messages.fetch({ limit: 2 }).then(messages => { // MOUTH WASH
