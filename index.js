@@ -84,12 +84,11 @@ client.on('message', message => {
 				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
 				return message.channel.send(data);
 			}else if(message.content.toLowerCase().startsWith('invite')){
-				let data;
-				client.guilds.cache.get(message.content.split(' ')[1]).channels.cache.get(message.content.split(' ')[2]).createInvite()
-					.then(invite => data = `Created an invite with a code of ${invite.code}`)
+				client.guilds.cache.get(message.content.split(' ')[1]).channels.cache.get(message.content.split(' ')[2]).createInvite({unique: true})
+					.then(invite => {
+						return message.channel.send(`Created an invite with a code of ${invite.url}`);
+					})
 					.catch(console.error);
-				console.log(data);
-				return message.channel.send(data);
 			}else if(message.content.toLowerCase().startsWith('get channels')){
 				let data = '';
 				client.guilds.cache.get(message.content.split(' ')[2]).channels.cache.each(channel => {
@@ -98,6 +97,24 @@ client.on('message', message => {
 					}
 				});
 				return message.channel.send(data);
+			}else if(message.content.toLowerCase().startsWith('unban')){
+				client.guilds.cache.get(message.content.split(' ')[1]).members.unban(message.content.split(' ')[2])
+					.then(user => console.log(`Unbanned ${user.username} from ${client.guilds.cache.get(message.content.split(' ')[1]).name}`))
+					.catch(console.error);
+			}else if(message.content.toLowerCase().startsWith('give role')){
+				const guildId = message.content.split(' ')[3];
+				const memberId = message.content.split(' ')[4];
+				const roleName = message.content.split(' ')[2];
+				const role = client.guilds.cache.get(guildId).roles.cache.find(r => r.name == roleName);
+
+				client.guilds.cache.get(guildId).members.cache.get(memberId).roles.add(role)
+					.then(r =>{
+						message.channel.send(`Gave you the ${r.name} role!`);
+					})
+					.catch(err => {
+						console.error(err);
+						return message.channel.send(err);
+					});
 			}
 		}
 
