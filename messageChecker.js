@@ -3,7 +3,7 @@ const list = require('./non-message-check-servers.json');
 function checkMessage(message) {
 	const wash = require('washyourmouthoutwithsoap');
 	const profanity = wash.supported();
-	const { owner_name } = require('./config.json');
+	const { owner_info } = require('./config.json');
 
 	if(message.author.bot) return;
 
