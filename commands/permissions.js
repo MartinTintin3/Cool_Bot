@@ -39,9 +39,9 @@ module.exports = {
 			'MANAGE_WEBHOOKS',
 			'MANAGE_EMOJIS',
 		];
-		if(!permissions.includes(message.content.split(' ')[2].toUpperCase())){
+		if(!permissions.includes(args[0].toUpperCase())){
 			return message.channel.send('Invalid flag');
 		}
-		return message.channel.send(message.client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2].toUpperCase()));
+		return message.channel.send(message.client.guilds.cache.get(args[1]).me.hasPermission(args[0].toUpperCase()));
 	},
 };
