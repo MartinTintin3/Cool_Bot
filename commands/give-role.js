@@ -26,9 +26,7 @@ module.exports = {
 			})
 			.catch(err => {
 				console.error(err);
-				if(err instanceof DiscordAPIError){
-					return message.channel.send('I am sorry but I don\'t have the neccesary permissions on the server you specified to give the user you specified a role');
-				}
+				return message.channel.send('I am sorry but I don\'t have the neccesary permissions on the server you specified to give the user you specified a role');
 			});
 	},
 };
