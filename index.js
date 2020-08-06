@@ -7,7 +7,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Import all the bot infp
-const { token, prefix, invite, owner_info, bot_info } = require('./config.json');
+const { token, prefix, invite_link, owner_info, bot_info } = require('./config.json');
 
 // Make a new Discord.js collection for the commands
 client.commands = new Discord.Collection();
@@ -26,7 +26,7 @@ const cooldowns = new Discord.Collection();
 // Set presence and print ready message
 client.once('ready', () => {
 	console.log('Ready!');
-	client.user.setPresence({ activity: { name: `Made by @${owner_info.tag}. Try $help`, url: invite }, status: 'available' }).then(console.log).catch(console.error);
+	client.user.setPresence({ activity: { name: `Made by @${owner_info.tag}. Try $help`, url: invite_link }, status: 'available' }).then(console.log).catch(console.error);
 	client.user.setUsername(bot_info.name);
 });
 
@@ -41,11 +41,61 @@ client.on('message', message => {
 		// Costume command to check if bot has permissions specified for the guid
 		if(message.channel.type == 'dm' && message.author.id == owner_info.id){
 			if(message.content.toLowerCase().startsWith('perms')){
-				return message.channel.send(client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2]));
+				const permissions = [
+					'ADMINISTRATOR',
+					'CREATE_INSTANT_INVITE',
+					'KICK_MEMBERS',
+					'BAN_MEMBERS',
+					'MANAGE_CHANNELS',
+					'MANAGE_GUILD',
+					'ADD_REACTIONS',
+					'VIEW_AUDIT_LOG',
+					'VIEW_CHANNEL',
+					'READ_MESSAGES',
+					'SEND_MESSAGES',
+					'SEND_TTS_MESSAGES',
+					'MANAGE_MESSAGES',
+					'EMBED_LINKS',
+					'ATTACH_FILES',
+					'READ_MESSAGE_HISTORY',
+					'MENTION_EVERYONE',
+					'USE_EXTERNAL_EMOJIS',
+					'EXTERNAL_EMOJIS',
+					'CONNECT',
+					'SPEAK',
+					'MUTE_MEMBERS',
+					'DEAFEN_MEMBERS',
+					'MOVE_MEMBERS',
+					'USE_VAD',
+					'CHANGE_NICKNAME',
+					'MANAGE_NICKNAMES',
+					'MANAGE_ROLES',
+					'MANAGE_ROLES_OR_PERMISSIONS',
+					'MANAGE_WEBHOOKS',
+					'MANAGE_EMOJIS',
+				];
+				if(!permissions.includes(message.content.split(' ')[2].toUpperCase())){
+					return message.channel.send('Invalid flag');
+				}
+				return message.channel.send(client.guilds.cache.get(message.content.split(' ')[1]).me.hasPermission(message.content.split(' ')[2].toUpperCase()));
 			}else if(message.content.toLowerCase().startsWith('get guilds')){
 				client.guilds.cache.each(guild => console.log(guild.name));
 				let data = '';
 				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
+				return message.channel.send(data);
+			}else if(message.content.toLowerCase().startsWith('invite')){
+				let data;
+				client.guilds.cache.get(message.content.split(' ')[1]).channels.cache.get(message.content.split(' ')[2]).createInvite()
+					.then(invite => data = `Created an invite with a code of ${invite.code}`)
+					.catch(console.error);
+				return message.channel.send(data);
+			}else if(message.content.toLowerCase().startsWith('get channels')){
+				let data = '';
+				client.guilds.cache.get(message.content.split(' ')[2]).channels.cache.each(channel => {
+					if(data.split('').length < 1600){
+						data += `"${channel.name}": ${channel.id}\n`;
+					}
+				});
 				return message.channel.send(data);
 			}
 		}
