@@ -8,6 +8,9 @@ module.exports = {
 	category: 'Utility',
 	private: true,
 	execute(message, args){
+		if(!parseInt(args[1]) || !parseInt(args[2])){
+			return message.channel.send('Please make sure that the user id and server id are valid!');
+		}
 		const guildId = args[2];
 		const memberId = args[1];
 		const roleName = args[0];
@@ -23,7 +26,7 @@ module.exports = {
 			})
 			.catch(err => {
 				console.error(err);
-				return message.channel.send(err);
+				return message.channel.send('I am sorry but I don\'t have the neccesary permissions on the server you specified to give the user you specified a role');
 			});
 	},
 };
