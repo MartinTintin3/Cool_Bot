@@ -1,4 +1,4 @@
-const { bot_info } = require('../package.json');
+const { bot_info } = require('./package.json');
 
 module.exports = {
 	name: 'version',
