@@ -4,16 +4,25 @@ module.exports = {
 	description: 'Gives the specified role to the specified user in the specified server/guild',
 	usage: '<role name(case sensitive)> <user id> <server/guild id>',
 	args: true,
-	args_num: 3,
 	category: 'Utility',
 	private: true,
 	execute(message, args){
-		if(!parseInt(args[1]) || !parseInt(args[2])){
-			return message.channel.send('Please make sure that the user id and server id are valid!');
+		let guildId;
+		let memberId;
+		let roleName;
+		if(!parseInt(args[1])){
+			roleName = `${args[0]} ${args[1]}`;
+			guildId = args[3];
+			memberId = args[2];
+		}else if(!parseInt(args[2])){
+			roleName = `${args[0]} ${args[1]} ${args[2]}`;
+			guildId = args[4];
+			memberId = args[3];
+		}else{
+			roleName = args[0];
+			guildId = args[2];
+			memberId = args[1];
 		}
-		const guildId = args[2];
-		const memberId = args[1];
-		const roleName = args[0];
 		const role = message.client.guilds.cache.get(guildId).roles.cache.find(r => r.name == roleName);
 
 		if(!message.client.guilds.cache.get(guildId).me.hasPermission('MANAGE_ROLES')){
