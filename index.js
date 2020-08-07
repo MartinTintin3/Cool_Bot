@@ -38,16 +38,6 @@ const { logMessage } = require('./messageLogger.js');
 // On message
 client.on('message', message => {
 	try {
-		// Costume command to check if bot has permissions specified for the guid
-		if(message.channel.type == 'dm' && message.author.id == owner_info.id){
-			if(message.content.toLowerCase().startsWith('get guilds')){
-				client.guilds.cache.each(guild => console.log(guild.name));
-				let data = '';
-				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
-				return message.channel.send(data);
-			}
-		}
-
 		// Log and check message
 		logMessage(message);
 		checkMessage(message);
