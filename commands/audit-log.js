@@ -13,7 +13,7 @@ module.exports = {
 				const logs = audit.entries.first(parseInt(args[1]));
 				let data = [];
 				for(const i in logs){
-					data.push(`Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n`);
+					data.push(`Action: ${logs[i].action}\nID: ${logs[i].id}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n`);
 					for(const n in logs[i].changes){
 						data[data.length - 1] += `Changes: {\n\tKey: ${logs[i].changes[n].key}\nOld: ${JSON.stringify(logs[i].changes[n].old)}\nNew: ${JSON.stringify(logs[i].changes[n].new)}}`;
 					}
