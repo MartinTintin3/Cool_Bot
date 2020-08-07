@@ -10,7 +10,7 @@ module.exports = {
 		message.client.guilds.cache.get(args[0]).fetchAuditLogs()
 			.then(audit => {
 				const logs = audit.entries.first(parseInt(args[1]));
-				let data = [];
+				const data = [];
 				for(const i in logs){
 					data.push(`Action: ${logs[i].action}\nTimestamp: ${logs[i].createdAt}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\nExtra: ${logs[i].extra}\n`);
 					for(const n in logs[i].changes){
