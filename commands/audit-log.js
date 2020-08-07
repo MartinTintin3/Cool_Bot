@@ -15,11 +15,11 @@ module.exports = {
 				for(const i in logs){
 					data.push(`Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n`);
 					for(const n in logs[i].changes){
-						data[data.length - 1] += `Changes: {\n\tKey: ${logs[i].changes[n].key}\n}`;
+						data[data.length - 1] += `Changes: {\n\tKey: ${logs[i].changes[n].key}\nOld: ${logs[i].changes[n].old}\nNew: ${logs[i].changes[n].new}}`;
 					}
 					data[data.length - 1] += '\n';
 				}
-				return message.channel.send(data.join(''));
+				return message.channel.send(data.reverse().join('\n'));
 			})
 			.catch(console.error);
 	},
