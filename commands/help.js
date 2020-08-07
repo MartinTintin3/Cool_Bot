@@ -46,6 +46,11 @@ module.exports = {
 						value: `\`${prefix}help games\``,
 						inline: true,
 					},
+					{
+						name: ':gear: Moderation',
+						value: `\`${prefix}help moderation\``,
+						inline: true,
+					},
 				],
 			}});
 		}
