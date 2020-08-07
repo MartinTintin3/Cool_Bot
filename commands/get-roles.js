@@ -9,7 +9,18 @@ module.exports = {
 	args_num: 1,
 	execute(message, args){
 		const roles = new Map();
-		console.log(JSON.stringify(message.client.guilds.cache.get(args[0]).roles.cache));
-		return message.channel.send(data.sort((a, b) => a - b));
+		message.client.guilds.cache.get(args[0]).roles.cache.each(role => {
+			roles.set(role.name, role.position);
+		});
+
+		roles[Symbol.iterator] = function* () {
+			yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
+		};
+
+		let data = '';
+		for (const [key, value] of roles) { // get data sorted
+			data += `${key}\n`;
+		}
+		return message.channel.send(data);
 	},
 };
