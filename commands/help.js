@@ -59,8 +59,8 @@ module.exports = {
 		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 		let category;
 
-
-		const isCategory = name == 'info' || name == 'fun' || name == 'random' || name == 'games' || name == 'utility';
+		const categories = ['info', 'fun', 'random', 'games', 'utility', 'moderation'];
+		const isCategory = categories.includes(name);
 		if (!isCategory) {
 			if(!command){
 				return message.reply('that\'s not a valid category or command!');
