@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'audit-log',
-	aliases: ['audit-logs'],
+	aliases: ['audit-logs', 'audit'],
 	description: 'Fetch the audit logs for the specified server/guild',
 	category: 'Info',
 	usage: '<server/guild id> <number of entries>',
