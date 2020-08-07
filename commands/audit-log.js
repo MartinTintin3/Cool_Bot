@@ -11,15 +11,13 @@ module.exports = {
 		message.client.guilds.cache.get(args[0]).fetchAuditLogs()
 			.then(audit => {
 				const logs = audit.entries.first(parseInt(args[1]));
-				let data = '';
+				let data = [];
 				for(const i in logs){
-					data += `Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n`;
+					data.push(`Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n`);
 					for(const n in logs[i].changes){
-						data += `Changes: {
-              ${logs[i].changes[n].key}
-            }`;
+						data[data.length - 1] += `Changes: {\n\tKey: ${logs[i].changes[n].key}\n}`;
 					}
-					data += '\n';
+					data[data.length - 1] += '\n';
 				}
 				return message.channel.send(data);
 			})
