@@ -8,10 +8,8 @@ module.exports = {
 	args: true,
 	args_num: 1,
 	execute(message, args){
-		let data = '';
-		message.client.guilds.cache.get(args[0]).roles.forEach(role => {
-			data += `${role.name}\n`;
-		});
-		return message.channel.send(data);
+		const roles = new Map();
+		message.client.guilds.cache.get(args[0]).roles.cache.
+		return message.channel.send(data.sort((a, b) => a - b));
 	},
 };
