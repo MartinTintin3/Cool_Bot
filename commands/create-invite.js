@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'create-invite',
-	aliases: ['invite', 'inv', 'create-inv'],
+	aliases: ['create-inv'],
 	args: true,
 	description: 'Will create and invite for the specified server/guild to the specified channel by id. If provided the keyword "new" after the server/guild id, then the invite will be a unique one. This is useful if the person who is going to use the invite has just been unbanned.',
 	usage: '<server/guild id> <channel id> <optional keyword "new" to get a unique invite>',
