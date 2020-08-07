@@ -18,7 +18,7 @@ module.exports = {
 		};
 
 		let data = '';
-		for (const [key, value] of roles) { // get data sorted
+		for (const [key] of roles) { // get data sorted
 			data += `${key}\n`;
 		}
 		return message.channel.send(data);
