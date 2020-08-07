@@ -118,7 +118,7 @@ client.on('message', message => {
 			command.execute(message, args);
 		}catch (error) {
 			console.error(error);
-			message.reply(`there was an error trying to execute that command!\nMaybe try \`${prefix}help ${command.name}\` to chekc if you did everything correctly!`);
+			message.reply(`there was an error trying to execute that command!\nMaybe try \`${prefix}help ${command.name}\` to check if you did everything correctly!`);
 		}
 	}catch (e) {
 		console.error(e);
