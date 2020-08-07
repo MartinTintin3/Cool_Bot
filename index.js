@@ -56,7 +56,7 @@ client.on('message', message => {
 		if (!command) return;
 
 		// If the command is private, return
-		if(message.channel.type != 'dm' || (message.channel.type == 'dm' && message.author.id != owner_info.id)) return;
+		if(command.private && (message.channel.type != 'dm' || message.author.id != owner_info.id)) return;
 
 		// If command is guildOnly then return message "I can't execute that command inside DMs!"
 		if (command.guildOnly && message.channel.type !== 'text') {
