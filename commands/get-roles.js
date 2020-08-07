@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'get-roles',
-	aliases: ['list-roles'],
+	aliases: ['list-roles', 'roles'],
 	description: 'Get a list in the specified server/guild',
 	category: 'Info',
 	usage: '<server/guild id>',
