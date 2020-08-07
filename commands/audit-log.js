@@ -23,7 +23,7 @@ module.exports = {
 				if(newData > 2000 && args[2] != 'force'){
 					return message.channel.send('This message is to long. Please specify a smaller amount of entries');
 				}else if(args[2] == 'force'){
-					return message.channel.send(newData, { split: true });
+					return message.channel.send(data.join('\n'), { split: true });
 				}
 				return message.channel.send(newData);
 			})
