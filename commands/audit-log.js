@@ -12,9 +12,9 @@ module.exports = {
 			.then(audit => {
 				const logs = audit.entries.first(parseInt(args[1]));
 				let data = '';
-				logs.forEach(item => {
-					data += `Action: ${item.action}\nExecuter: ${item.executer.username}\n`;
-				});
+				for(const i in logs){
+					data += `Action: ${logs[i].action}\nExecuter: ${logs[i].executer.username}\n`;
+				}
 				return message.channel.send(data);
 			})
 			.catch(console.error);
