@@ -5,6 +5,8 @@ module.exports = {
 	usage: '<permission flag> <server/guild id>',
 	category: 'Info',
 	private: true,
+	args: true,
+	args_num: 2,
 	execute(message, args){
 		const permissions = [
 			'ADMINISTRATOR',
