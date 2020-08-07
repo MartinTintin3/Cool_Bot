@@ -13,7 +13,7 @@ module.exports = {
 				const logs = audit.entries.first(parseInt(args[1]));
 				let data = '';
 				for(const i in logs){
-					data += `Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\n`;
+					data += `Action: ${logs[i].action}\nExecuter: ${logs[i].executor.tag}\nTarget: ${logs[i].target}\n\n`;
 				}
 				return message.channel.send(data);
 			})
