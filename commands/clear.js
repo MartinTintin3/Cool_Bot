@@ -7,9 +7,9 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
 	execute(message, args){
-		if(message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You don\'t have the "Manage Messages" permission');
+		if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You don\'t have the "Manage Messages" permission');
 		if(!parseInt(args[0])) return message.reply('Please provide the number of messages to delete');
-		message.channel.bulkDelete(parseInt(args[0]))
+		message.channel.bulkDelete(parseInt(args[0]) + 1)
 			.then(messages => console.log(`Bulk deleted ${messages.size} messages`))
 			.catch(console.error);
 	},
