@@ -10,7 +10,12 @@ module.exports = {
 	execute(message, args){
 		message.client.guilds.cache.get(args[0]).fetchAuditLogs()
 			.then(audit => {
-				return message.channel.send(audit.entries.first(parseInt(args[1])));
+				const logs = audit.entries.first(parseInt(args[1]));
+				let data = '';
+				logs.forEach(item => {
+					data += `Action: ${item.action}\nExecuter: ${item.executer.username}\n`;
+				});
+				return message.channel.send(data);
 			})
 			.catch(console.error);
 	},
