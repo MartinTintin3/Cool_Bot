@@ -31,7 +31,7 @@ module.exports = {
 
 		message.client.guilds.cache.get(guildId).members.cache.get(memberId).roles.add(role)
 			.then(r =>{
-				message.channel.send(`Gave you the ${r.name} role!`);
+				message.channel.send(`Gave you the ${roleName} role!`);
 			})
 			.catch(err => {
 				console.error(err);
