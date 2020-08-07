@@ -47,7 +47,7 @@ module.exports = {
 						inline: true,
 					},
 					{
-						name: ':gear: Moderation',
+						name: ':loudspeaker: Moderation',
 						value: `\`${prefix}help moderation\``,
 						inline: true,
 					},
