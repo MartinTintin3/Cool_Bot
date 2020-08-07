@@ -64,7 +64,7 @@ client.on('message', message => {
 		}
 
 		// If command requires arguments and it has a specific argument amount and the user didn't specify correct number of arguments
-		if (command.args && command.args_num && args.length != command.args_num) {
+		if ((command.args && command.args_num && args.length != command.args_num) || command.args && !args.length) {
 			let reply;
 
 			if(args.length && command.args_num && args.length != command.args_num){
