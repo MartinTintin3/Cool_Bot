@@ -9,7 +9,7 @@ module.exports = {
 	args_num: 1,
 	execute(message, args){
 		const roles = new Map();
-		// message.client.guilds.cache.get(args[0]).roles.cache.le.log(data);
+		console.log(JSON.stringify(message.client.guilds.cache.get(args[0]).roles.cache));
 		return message.channel.send(data.sort((a, b) => a - b));
 	},
 };
