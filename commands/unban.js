@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'unban',
+	name: 'costume-unban',
 	description: 'Unban a user by the specified user id and server/guild id',
 	usage: '<user id> <server/guild id>',
 	args: true,
