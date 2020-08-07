@@ -9,7 +9,9 @@ module.exports = {
 	args_num: 2,
 	execute(message, args){
 		message.client.guilds.cache.get(args[0]).fetchAuditLogs()
-			.then(audit => console.log(audit.entries.first(parseInt(args[1]))))
+			.then(audit => {
+				return message.channel.send(audit.entries.first(parseInt(args[1])));
+			})
 			.catch(console.error);
 	},
 };
