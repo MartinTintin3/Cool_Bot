@@ -1,7 +1,8 @@
 const { prefix } = require('../config.json');
 
 module.exports = {
-	name: 'random-num',
+	name: 'random-number',
+	aliases: ['rand-num', 'rand-number', 'random-num'],
 	cooldown: 3,
 	description: `Return a random number in the specified range. Example: \`${prefix}${this.name} 1 5\` Will return a random number from 1 to 5. **Do not seperate the minimum and maximum with commas. Seperate them with spaces!**`,
 	usage: '<minimum> <maximum>',
