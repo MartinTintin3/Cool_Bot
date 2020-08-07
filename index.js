@@ -45,12 +45,6 @@ client.on('message', message => {
 				let data = '';
 				client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
 				return message.channel.send(data);
-			}else if(message.content.toLowerCase().startsWith('invite')){
-				client.guilds.cache.get(message.content.split(' ')[1]).channels.cache.get(message.content.split(' ')[2]).createInvite({unique: true})
-					.then(invite => {
-						return message.channel.send(`Created an invite with a code of ${invite.url}`);
-					})
-					.catch(console.error);
 			}
 		}
 
