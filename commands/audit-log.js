@@ -1,0 +1,15 @@
+module.exports = {
+	name: 'audit-log',
+	aliases: ['audit-logs'],
+	description: 'Fetch the audit logs for the specified server/guild',
+	category: 'Info',
+	usage: '<server/guild id> <number of entries>',
+	private: true,
+	args: true,
+	args_num: 2,
+	execute(message, args){
+		message.client.cache.get(args[0]).fetchAuditLogs()
+			.then(audit => console.log(audit.entries.first(parseInt(args[1]))))
+			.catch(console.error);
+	},
+};
