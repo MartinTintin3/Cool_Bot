@@ -19,7 +19,7 @@ module.exports = {
 					}
 					data[data.length - 1] += '\n';
 				}
-				return message.channel.send(data);
+				return message.channel.send(data.join(''));
 			})
 			.catch(console.error);
 	},
