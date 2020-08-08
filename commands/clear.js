@@ -10,11 +10,15 @@ module.exports = {
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You don\'t have the "Manage Messages" permission');
 		if(!parseInt(args[0])) return message.reply('Please provide the number of messages to delete');
 		if(parseInt(args[0]) > 100) return message.channel.send('Cannot clear more than 100 messages!');
-		message.channel.bulkDelete(parseInt(args[0]) + 1)
-			.then(messages => console.log(`Bulk deleted ${messages.size} messages`))
-			.catch(err => {
-				console.error(err);
-				return message.channel.send('That is to big. The maximum is 100');
-			});
+		message.channel.send(`Deleting ${args[0]} messages...`).then(a => {
+			setTimeout(() => {
+				a.delete();
+				message.channel.bulkDelete(parseInt(args[0]) + 1)
+					.catch(err => {
+						console.error(err);
+						return message.channel.send('That is to big. The maximum is 100');
+					});
+			}, 1000);
+		});
 	},
 };
