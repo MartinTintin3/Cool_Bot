@@ -5,13 +5,13 @@ module.exports = {
 	execute(message, args){
 		switch(message.author.presence.status){
 		case 'online':
-			return message.channel.send('Status: :green_circle: online');
+			return message.channel.send('Your Status: :green_circle: online');
 		case 'idle':
-			return message.channel.send('Status: :orange_circle: idle');
+			return message.channel.send('Your Status: :orange_circle: idle');
 		case 'offline':
-			return message.channel.send('Status: :black_circle: offline/invisible');
+			return message.channel.send('Your Status: :black_circle: offline/invisible');
 		case 'dnd':
-			return message.channel.send('Status: :red_circle: dnd(Do not disturb)');
+			return message.channel.send('Your Status: :red_circle: dnd(Do not disturb)');
 		}
 	},
 };
