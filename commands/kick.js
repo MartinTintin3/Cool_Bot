@@ -11,28 +11,20 @@ module.exports = {
 
 		if (!message.mentions && args[0].length == 18) return message.channel.send('Please mention the user you want to kick or provide the id of the user');
 
-		if(args[0].length == 18){
-			if(args[1]){
-				const id = args.shift();
-				message.guild.members.cache.get(args[0]).kick(args.join(' ')).then(member => {
-					message.guild.owner.send(`${member.tag} Has been kicked from ${message.guild.name} by ${message.author.tag} for \`${args.join(' ')}\``);
-					return message.channel.send(`Successfuly kicked ${member.tag} by ${message.author.tag} for \`${args.join(' ')}\``);
-				});
-			}
-			message.guild.members.cache.get(args[0]).kick().then(member => {
-				message.guild.owner.send(`${member.tag} Has been kicked from ${message.guild.name} by ${message.author.tag} No reason spcefified`);
+		const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+
+		console.log(user);
+
+		if(args[1]){
+			const id = args.shift();
+			user.kick(args.join(' ')).then(member => {
+				message.guild.owner.send(`${member.tag} Has been kicked from ${message.guild.name} by ${message.author.tag} for \`${args.join(' ')}\``);
 				return message.channel.send(`Successfuly kicked ${member.tag} by ${message.author.tag} for \`${args.join(' ')}\``);
 			});
 		}
-
-		if (args[0].startsWith('<@') && args[0].endsWith('>')) {
-			let mention = args[0].slice(2, -1);
-
-			if (mention.startsWith('!')) {
-				mention = mention.slice(1);
-			}
-
-			message.guild.members.cache.get(mention);
-		}
+		user.kick().then(member => {
+			message.guild.owner.send(`${member.tag} Has been kicked from ${message.guild.name} by ${message.author.tag} No reason spcefified`);
+			return message.channel.send(`Successfuly kicked ${member.tag} by ${message.author.tag} for \`${args.join(' ')}\``);
+		});
 	},
 };
