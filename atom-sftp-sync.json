@@ -4,7 +4,7 @@
     "username": "pi",
     "password": "PiServer31415926",
     "port": 22,
-    "remotePath": "/home/pi/Discord_Bot",
+    "remotePath": "~/Discord_Bot/",
     "uploadOnSave": true,
     "uploadConfigFile": false
 }
