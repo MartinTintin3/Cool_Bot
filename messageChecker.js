@@ -7,7 +7,7 @@ function checkMessage(message) {
 
 	if(message.author.bot || !message.guild) return;
 
-	if(list.swear_servers.includes(message.guild.id)){
+	if(!list.swear_servers.includes(message.guild.id)){
 		message.channel.messages.fetch({ limit: 2 }).then(messages => { // MOUTH WASH
 			const secondMessage = messages.last();
 
