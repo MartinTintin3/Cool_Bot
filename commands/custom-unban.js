@@ -10,7 +10,7 @@ module.exports = {
 		if(!message.client.guilds.cache.get(args[1]).me.hasPermission('BAN_MEMBERS')) return message.channel.send('I do not have the neccessary permissions');
 
 		{message.client.guilds.cache.get(args[1]).members.unban(args[0])
-			.then(user => console.log(`Unbanned ${user.username} from ${message.client.guilds.cache.get(args[1]).name}`))
+			.then(user => message.channel.send(`Unbanned ${user.username} from ${message.client.guilds.cache.get(args[1]).name}`))
 			.catch(console.error);}
 	},
 };
