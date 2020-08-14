@@ -16,7 +16,7 @@ module.exports = {
 				color: '#' + Math.floor(Math.random() * 16777215).toString(16),
 				title: `${bot_info.name} Categories List`,
 				author: {
-					name: 'Martin Maroyan',
+					name: 'Martin M.',
 					icon_url: owner_info.avatar_url,
 					url: 'https://www.thehowtobrainiac.com',
 				},
