@@ -8,28 +8,14 @@ function logMessage(message){
 		msg = '[Discord Embed]';
 	}
 
-	const letters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '𝓔'];
-
-
-	const guildName = message.guild.name.split('');
-	const channelName = message.channel.name.split('');
-
-	while(letters.includes(channelName[0].toLowerCase()) == false || letters.includes(channelName[0].toLowerCase()) == null){
-		channelName.shift();
-	}
-	while(letters.includes(guildName[0].toLowerCase()) == false || letters.includes(guildName[0].toLowerCase()) == null){
-		guildName.shift();
-	}
-
-
-	if (!fs.existsSync(`../messageLogs/${guildName.join('')}`)){
-		fs.mkdirSync(`../messageLogs/${guildName.join('')}`);
+	if (!fs.existsSync(`../messageLogs/${message.guild.name}`)){
+		fs.mkdirSync(`../messageLogs/${message.guild.name}`);
 	}
 
 
 	const date = new Date();
 
-	fs.appendFileSync(`../messageLogs/${guildName.join('')}/${channelName.join('')}.log`, `\n\n${date} by ${message.author.tag}: ${msg}`);
+	fs.appendFileSync(`../messageLogs/${message.guild.name}/${message.channel.name}.log`, `\n\n${date} by ${message.author.tag}: ${msg}`);
 }
 
 module.exports = { logMessage };
