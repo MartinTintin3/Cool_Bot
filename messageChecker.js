@@ -1,4 +1,5 @@
 const list = require('./non-message-check-servers.json');
+const data = require('./node_modules/washyourmouthoutwithsoap/data/build.json');
 
 function checkMessage(message) {
 	const wash = require('washyourmouthoutwithsoap');
@@ -21,6 +22,17 @@ function checkMessage(message) {
 
 						return message.channel.send(`**BAD ${message.author.username}! Don't use bad words! Contact @${owner_info.tag} for full message**`).then(function(){
 							message.delete();
+						});
+					}else{
+						data.en.forEach(word => {
+							if(message.clean.toLowerCase.includes(word)){
+								console.log(new Date());
+								console.log(`${message.author.tag} tried to use profanity at "${message.guild.name}" in #${message.channel.name}: ${message.cleanContent}`);
+
+								return message.channel.send(`**BAD ${message.author.username}! Don't use bad words! Contact @${owner_info.tag} for full message**`).then(function(){
+									message.delete();
+								});
+							}
 						});
 					}
 				}
