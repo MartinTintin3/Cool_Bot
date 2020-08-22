@@ -13,12 +13,12 @@ module.exports = {
 		message.channel.send(`Deleting ${args[0]} messages...`).then(a => {
 			setTimeout(() => {
 				a.delete();
-				message.channel.bulkDelete(parseInt(args[0]) + 1)
+				message.channel.bulkDelete(parseInt(args[0]) + 2)
 					.catch(err => {
 						console.error(err);
 						return message.channel.send('That is to big. The maximum is 100');
 					});
-			}, 1000);
+			}, 500);
 		});
 	},
 };
