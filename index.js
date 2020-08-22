@@ -47,6 +47,11 @@ client.on('guildDelete', guild => {
 	client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
+client.on('guildMemberAdd', (member) => {
+	if(member.guild.id != '730054736530636841') return;
+	member.send(`Thanks for joining ${member.guild.name}! If you get banned and you want to appeal, then message \`${prefix}appeal why we should unban you\` to me`);
+});
+
 // On message
 client.on('message', message => {
 	try {
