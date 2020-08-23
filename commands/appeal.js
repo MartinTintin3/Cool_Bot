@@ -5,6 +5,7 @@ module.exports = {
 	category: 'Utility',
 	args: true,
 	execute(message, args){
+		if(message.guild.id != '730054736530636841') return;
 		if(message.channel.type != 'dm') return message.channel.send('This command can only be run inside dms');
 		let bannedUser;
 		message.client.guilds.cache.get('730054736530636841').fetchBans().then(bans => {
