@@ -8,7 +8,8 @@ function checkMessage(message) {
 
 	if(message.author.bot || !message.guild) return;
 
-	if(!list.swear_servers.includes(message.guild.id)){
+
+	if(!list.swear_servers.includes(message.guild.id) && message.guild.me.hasPermission('MANAGE_MESSAGES')){
 		message.channel.messages.fetch({ limit: 2 }).then(messages => { // MOUTH WASH
 			const secondMessage = messages.last();
 
@@ -23,9 +24,10 @@ function checkMessage(message) {
 						return message.channel.send(`**BAD ${message.author.username}! Don't use bad words! Contact @${owner_info.tag} for full message**`).then(function(){
 							message.delete();
 						});
-					}else{
+					}/* else{
 						data.en.forEach(word => {
 							if(message.cleanContent.toLowerCase().includes(word)){
+								console.log(message.cleanContent.toLowerCase());
 								console.log(new Date());
 								console.log(`${message.author.tag} tried to use profanity at "${message.guild.name}" in #${message.channel.name}: ${message.cleanContent}`);
 
@@ -34,7 +36,7 @@ function checkMessage(message) {
 								});
 							}
 						});
-					}
+					} */
 				}
 			}
 		}).catch(console.error);
