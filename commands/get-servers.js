@@ -7,7 +7,6 @@ module.exports = {
 	category: 'Info',
 	private: true,
 	execute(message, args){
-		message.client.guilds.cache.each(guild => console.log(guild.name));
 		let data = '';
 		message.client.guilds.cache.each(guild => data += `"${guild.name}" : ${guild.id}\n`);
 		return message.channel.send(data);
