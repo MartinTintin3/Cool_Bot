@@ -7,7 +7,6 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
 	execute(message, args){
-		if(!message.guild.me.hasPermission('MANAGE_MESSAGES')) return message.reply('You don\'t have the "Manage Messages" permission');
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You don\'t have the "Manage Messages" permission');
 		if(!parseInt(args[0])) return message.reply('Please provide the number of messages to delete');
 		if(parseInt(args[0]) > 100) return message.channel.send('Cannot clear more than 100 messages!');
@@ -17,7 +16,8 @@ module.exports = {
 				a.delete();
 				message.channel.bulkDelete(parseInt(args[0]) + 2)
 					.catch(err => {
-						throw new Error(err);
+						console.error(err);
+						return message.reply('I don\'t have the "Manage Messages" permission');
 					});
 			}, 500);
 		});
