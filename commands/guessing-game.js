@@ -5,6 +5,7 @@ module.exports = {
 	aliases: ['guess-the-number', 'guess-game'],
 	description: `Try to guess the number I am thinking of! Choose the range you want to play in(Recomended range: 0 100. So for example: \`${prefix}${this.name} 0 100\`)`,
 	usage: '<minimum> <maximum>',
+	category: 'Games',
 	execute(message, args){
 		if(isNaN(args[0]) || isNaN(args[1])) return message.channel.send('Please provide valid numbers');
 		const number = Math.floor(Math.random() * parseInt(args[1])) + parseInt(args[0]);
