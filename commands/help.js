@@ -18,7 +18,6 @@ module.exports = {
 				author: {
 					name: 'Martin M.',
 					icon_url: owner_info.avatar_url,
-					url: 'https://www.thehowtobrainiac.com',
 				},
 				fields: [
 					{
