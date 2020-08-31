@@ -1,3 +1,132 @@
 {
-	"swear_servers": ["656700033508311051"]
+	"swear_servers": ["656700033508311051"],
+	"shops": [
+		{
+			"name": "Tatos Taco's",
+			"owner_id": "713090355397918741",
+			"channel_id": "748615804710551602",
+			"menu": {
+				"author":{
+					"name": "Tato's Bread",
+					"icon_url": "https:\/\/cdn.discordapp.com\/avatars\/713090355397918741\/c01f0d2e5454b415f21e0ab8504d652d.png",
+					"proxy_icon_url": "https:\/\/images-ext-1.discordapp.net\/external\/FIQC17Lrz9vbiupuMIr_K1f2PB76Vt2mbq4VfOa0XAw\/https\/cdn.discordapp.com\/avatars\/713090355397918741\/c01f0d2e5454b415f21e0ab8504d652d.png"
+				},
+				"title": "Tato's Tacos",
+				"fields":[
+					{
+							"name": "**Taco:**",
+							"value": "50 coins",
+							"inline":false
+					},
+					{
+							"name": "**Burrito:**",
+							"value": "60 coins",
+							"inline":false
+					},
+					{
+							"name": "**Hamburger:**",
+							"value": "45 coins",
+							"inline":false
+					},
+					{
+							"name": "**Fiji water:**",
+							"value": "25 coins",
+							"inline":false
+					},
+					{
+							"name": "**Soda:**",
+							"value": "15 coins",
+							"inline":false
+					}
+				],
+				"color":16766720,
+				"type": "rich"
+			},
+			"open": "https://media1.tenor.com/images/b6434e4d3552d7673b5d6fd351283e53/tenor.gif?itemid=14209777",
+			"closed": "https://media0.giphy.com/media/10WCpxxwoQ9dKM/giphy.gif"
+		}, 
+		{
+			"name": "Tekky's Yeet Shop",
+			"owner_id": "512450770306727947",
+			"channel_id": "748627126038560798",
+			"menu": {
+				"author":{
+					"name": "Lil_Tekky",
+					"icon_url": "https:\/\/cdn.discordapp.com\/avatars\/512450770306727947\/1836d744fd1cf5b6adb318f06324b08f.webp",
+					"proxy_icon_url": "https:\/\/images-ext-1.discordapp.net\/external\/u3wfxJxfrocz4P0FQeHf-JBoF--kCAyPnV725tKmn2o\/https\/cdn.discordapp.com\/avatars\/512450770306727947\/1836d744fd1cf5b6adb318f06324b08f.webp"
+				},
+				"title": "Tekky's Yeet Shop",
+				"fields":[
+						{
+							"name": "**1911**",
+							"value": "Price: 15 coins\nSelf-defense pew",
+							"inline": false
+						},
+						{
+							"name": "**Obama Care**",
+							"value": "Price: 50 coins\nKeep ur vibes checked",
+							"inline": false
+						},
+						{
+							"name": "**Glock**",
+							"value": "Price: 100 coins\nOffensive pew",
+							"inline": false
+						},
+						{
+							"name": "**Ak-47**",
+							"value": "Price: 200\nAssault sum1",
+							"inline": false
+						},
+						{
+							"name": "**Snickers 1up**",
+							"value": "Price: 50\nGet supa hot powers",
+							"inline": false
+						},
+						{
+							"name": "**Mario\u2019s mystery boom boom pasta**",
+							"value": "Price: 100\nGift ur enemy an explosive snacc",
+							"inline": false
+						}
+				],
+				"color":16766720,
+				"type": "rich"
+			},
+			"closed": "https://cdn.shopify.com/s/files/1/0005/9686/9156/products/82121677_580x.gif?v=1574590373",
+			"open": "https://i.gifer.com/WltN.gif"
+		},
+		{
+			"name": "Inferno's Vehicle Shop",
+			"owner_id": "356487077367644170",
+			"channel_id": "749018252931366933",
+			"open": "https://media1.tenor.com/images/e6de9e8a637cf84263975e455b2e97f1/tenor.gif?itemid=15984417",
+			"closed": "https://media1.tenor.com/images/4b01a6026b3a095f497062c03d0b6969/tenor.gif?itemid=11988362",
+			"menu": {
+				"author": {
+					"name": " 𝐈𝐧𝐟𝐞𝐫𝐧𝐨 ",
+					"icon_url": "https://cdn.discordapp.com/avatars/356487077367644170/84cc87530fea894f93918a0e62f6e3dd.png",
+					"proxy_icon_url": "https://cdn.discordapp.com/avatars/356487077367644170/84cc87530fea894f93918a0e62f6e3dd.webp"
+				},
+				"title": "Inferno's Vehicle Shop",
+				"fields": [
+					{
+						"name": "**Car**",
+						"value": "Any car in real life\nPrice: starting at 100 coins"
+					},
+					{
+						"name": "**Fuel**",
+						"value": "All new cars don't have fuel\nPrice: 10 coins"
+					},
+					{
+						"name": "**Electricity**",
+						"value": "Only Teslas need electricity\nPrice: 0 coins"
+					}
+				],
+				"color": 16711680,
+				"type": "rich",
+				"footer": {
+					"text": "Please note that coins represent Dank Memer coins"
+				}
+			}
+		}
+	]
 }

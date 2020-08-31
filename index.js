@@ -55,16 +55,16 @@ client.on('guildMemberAdd', (member) => {
 // On message
 client.on('message', message => {
 	try {
-		// Log and check message
-		logMessage(message);
-		checkMessage(message);
-
-		// Return if message doesn't start with prefix or the author is a bot
-		if (!message.content.startsWith(prefix) || message.author.bot) return;
-
 		// Make an array of arguments and make a constant for the command name
 		const args = message.content.slice(prefix.length).split(/ +/);
 		const commandName = args.shift().toLowerCase();
+
+		// Log and check message
+		logMessage(message);
+		checkMessage(message, args);
+
+		// Return if message doesn't start with prefix or the author is a bot
+		if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 		// Make a constant for the command object
 		const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));

@@ -14,10 +14,19 @@ module.exports = {
 		message.channel.send(`Deleting ${args[0]} messages...`).then(a => {
 			setTimeout(() => {
 				a.delete();
-				message.channel.bulkDelete(parseInt(args[0]) + 2)
+				if(parseInt(args[0]) > 98){
+					message.channel.bulkDelete(parseInt(args[0]) - 2)
+						.catch(err => {
+							throw new Error(err);
+						});
+					return message.channel.bulkDelete(2)
+						.catch(err => {
+							throw new Error(err);
+						});
+				}
+				return message.channel.bulkDelete(parseInt(args[0]) + 2)
 					.catch(err => {
-						console.error(err);
-						return message.reply('I don\'t have the "Manage Messages" permission');
+						throw new Error(err);
 					});
 			}, 500);
 		});
