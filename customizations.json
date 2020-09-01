@@ -7,35 +7,32 @@
 			"channel_id": "748615804710551602",
 			"menu": {
 				"author":{
-					"name": "Tato's Bread",
-					"icon_url": "https:\/\/cdn.discordapp.com\/avatars\/713090355397918741\/c01f0d2e5454b415f21e0ab8504d652d.png",
-					"proxy_icon_url": "https:\/\/images-ext-1.discordapp.net\/external\/FIQC17Lrz9vbiupuMIr_K1f2PB76Vt2mbq4VfOa0XAw\/https\/cdn.discordapp.com\/avatars\/713090355397918741\/c01f0d2e5454b415f21e0ab8504d652d.png"
 				},
 				"title": "Tato's Tacos",
 				"fields":[
 					{
 							"name": "**Taco:**",
-							"value": "50 coins",
-							"inline":false
+							"value": "100 coins",
+							"inline": false
 					},
 					{
 							"name": "**Burrito:**",
-							"value": "60 coins",
-							"inline":false
+							"value": "150 coins",
+							"inline": false
 					},
 					{
 							"name": "**Hamburger:**",
-							"value": "45 coins",
-							"inline":false
+							"value": "75 coins",
+							"inline": false
 					},
 					{
 							"name": "**Fiji water:**",
-							"value": "25 coins",
-							"inline":false
+							"value": "50 coins",
+							"inline": false
 					},
 					{
 							"name": "**Soda:**",
-							"value": "15 coins",
+							"value": "45 coins",
 							"inline":false
 					}
 				],
@@ -51,9 +48,6 @@
 			"channel_id": "748627126038560798",
 			"menu": {
 				"author":{
-					"name": "Lil_Tekky",
-					"icon_url": "https:\/\/cdn.discordapp.com\/avatars\/512450770306727947\/1836d744fd1cf5b6adb318f06324b08f.webp",
-					"proxy_icon_url": "https:\/\/images-ext-1.discordapp.net\/external\/u3wfxJxfrocz4P0FQeHf-JBoF--kCAyPnV725tKmn2o\/https\/cdn.discordapp.com\/avatars\/512450770306727947\/1836d744fd1cf5b6adb318f06324b08f.webp"
 				},
 				"title": "Tekky's Yeet Shop",
 				"fields":[
@@ -102,15 +96,12 @@
 			"closed": "https://media1.tenor.com/images/4b01a6026b3a095f497062c03d0b6969/tenor.gif?itemid=11988362",
 			"menu": {
 				"author": {
-					"name": " 𝐈𝐧𝐟𝐞𝐫𝐧𝐨 ",
-					"icon_url": "https://cdn.discordapp.com/avatars/356487077367644170/84cc87530fea894f93918a0e62f6e3dd.png",
-					"proxy_icon_url": "https://cdn.discordapp.com/avatars/356487077367644170/84cc87530fea894f93918a0e62f6e3dd.webp"
 				},
 				"title": "Inferno's Vehicle Shop",
 				"fields": [
 					{
 						"name": "**Car**",
-						"value": "Any car in real life\nPrice: starting at 100 coins"
+						"value": "Any car in real life. **Do `.buy` to get started**\nPrice: starting at 100 coins"
 					},
 					{
 						"name": "**Fuel**",

@@ -10,5 +10,7 @@
   },
   "bot_info": {
     "name": "Cool Bot"
-  }
+	},
+	"google_api_key": "AIzaSyBk1TlegaOZaKfw6xu2QnrFBE5PHVgHZ4o",
+	"cse_key": "be66fc7e4a4587ef3"
 }
