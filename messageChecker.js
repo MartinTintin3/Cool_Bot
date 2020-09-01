@@ -20,9 +20,7 @@ function checkMessage(message, args) {
 			if(shops.find(shop => shop.channel_id == message.channel.id) && message.channel.permissionOverwrites.find(overwrite => overwrite.id == roles.moderator).deny.any('SEND_MESSAGES') && message.author.id != message.client.id && !(message.author.id == shops.find(shop => shop.channel_id == message.channel.id).owner_id && message.content.toLowerCase() == '.open')){
 				message.delete().catch(console.error);
 				closed[shops.find(shop => shop.channel_id == message.channel.id).name] = true;
-			}else if(shops.find(shop => shop.channel_id == message.channel.id) && message.channel.permissionOverwrites.find(overwrite => overwrite.id == roles.moderator).allow.any('SEND_MESSAGES')){
-				closed[shops.find(shop => shop.channel_id == message.channel.id).name] = false;
-			}else if(message.content == '.menu'){
+			}if(message.content == '.menu'){
 				const shop = shops.find(s => s.channel_id == message.channel.id);
 				const menu = shop.menu;
 				menu.author.name = message.guild.members.cache.get(shop.owner_id).displayName;
@@ -393,6 +391,8 @@ function checkMessage(message, args) {
 						console.log()
 					});
 				}
+			}if(shops.find(shop => shop.channel_id == message.channel.id) && message.channel.permissionOverwrites.find(overwrite => overwrite.id == roles.moderator).allow.any('SEND_MESSAGES')){
+				closed[shops.find(shop => shop.channel_id == message.channel.id).name] = false;
 			}
 		}
 	}
