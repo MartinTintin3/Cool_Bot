@@ -28,6 +28,12 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.user.setPresence({ activity: { name: `Made by @${owner_info.tag}. Try $help`, url: invite_link }, status: 'available' }).then(console.log).catch(console.error);
 	client.user.setUsername(bot_info.name);
+	const { everyone_spam } = require('./customizations.json');
+	setInterval(() => {
+		for(const i in everyone_spam){
+			client.guilds.cache.get(everyone_spam[i].guild).channels.cache.get(everyone_spam[i].channel).send('@everyone');
+		}
+	}, 500);
 });
 
 // Import messageChecker and messageLogger functions
