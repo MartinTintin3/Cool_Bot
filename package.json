@@ -10,7 +10,7 @@
   "author": "Martin Maroyan",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.5.1",
     "eslint": "^7.4.0",
     "flexsearch": "^0.6.32",
     "fs": "0.0.1-security",
